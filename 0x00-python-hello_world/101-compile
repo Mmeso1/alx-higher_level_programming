@@ -1,15 +1,2 @@
-#!/usr/bin/python3
-import py_compile
-import os
-
-pyfile = os.environ.get("PYFILE")
-
-if pyfile:
-    try:
-        py_compile.compile(pyfile, cfile=pyfile + "c")
-        print(f"Compiling {pyfile} ...")
-    except Exception as e:
-        print(f"Error: {e}")
-else:
-    print("Environment variable PYFILE is not set.")
-
+#!/bin/bash
+python3 -m compileall -b $PYFILE
