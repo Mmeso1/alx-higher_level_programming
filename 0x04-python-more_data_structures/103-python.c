@@ -1,68 +1,59 @@
-#include <Python.h>
+#include "/usr/include/python3.4/Python.h"
 #include <stdio.h>
-#include <object.h>
-#include <listobject.h>
-#include <bytesobject.h>
 
-void print_python_list(PyObject *p)
+void print_hexn(const char *str, int n)
 {
-	int size, allocated, i;
-	PyObject *item;
+	int i = 0;
 
-	if (PyList_Check(p))
-	{
-		size = Py_SIZE(p);
-		allocated = ((PyListObject *)p)->allocated;
+	for (; i < n - 1; ++i)
+		printf("%02x ", (unsigned char) str[i]);
 
-		printf("[*] Python list info\n");
-		printf("[*] Size of the Python List = %d\n", size);
-		printf("[*] Allocated = %d\n", allocated);
-
-		for (i = 0; i < size; i++)
-		{
-			item = PyList_GetItem(p, i);
-			printf("Element %d: ", i);
-
-			if (PyBytes_Check(item))
-			{
-				print_python_bytes(item);
-			}
-			else
-			{
-				printf("%s\n", Py_TYPE(item)->tp_name);
-			}
-		}
-	}
-	else
-	{
-		printf("[*] Invalid Bytes Object\n");
-	}
+	printf("%02x", str[i]);
 }
 
 void print_python_bytes(PyObject *p)
 {
-	int size, i;
-	char *data;
+	PyBytesObject *clone = (PyBytesObject *) p;
+	int calc_bytes, clone_size = 0;
 
-	if (PyBytes_Check(p))
+	printf("[.] bytes object info\n");
+	if (PyBytes_Check(clone))
 	{
-		size = Py_SIZE(p);
-		data = PyBytes_AsString(p);
+		clone_size = PyBytes_Size(p);
+		calc_bytes = clone_size + 1;
 
-		printf("[.] bytes object info\n");
-		printf("  size: %d\n", size);
-		printf("  trying string: %s\n", data);
+		if (calc_bytes >= 10)
+			calc_bytes = 10;
 
-		printf("  first %d bytes:", (size > 10) ? 10 : size);
-		for (i = 0; i < ((size > 10) ? 10 : size); i++)
-		{
-			printf(" %.2x", data[i] & 0xFF);
-		}
+		printf("  size: %d\n", clone_size);
+		printf("  trying string: %s\n", clone->ob_sval);
+		printf("  first %d bytes: ", calc_bytes);
+		print_hexn(clone->ob_sval, calc_bytes);
 		printf("\n");
 	}
 	else
 	{
-		printf("[ERROR] Invalid Bytes Object\n");
+		printf("  [ERROR] Invalid Bytes Object\n");
 	}
 }
 
+void print_python_list(PyObject *p)
+{
+	int i = 0, list_len = 0;
+	PyObject *item;
+	PyListObject *clone = (PyListObject *) p;
+
+	printf("[*] Python list info\n");
+	list_len = PyList_GET_SIZE(p);
+	printf("[*] Size of the Python List = %d\n", list_len);
+	printf("[*] Allocated = %d\n", (int) clone->allocated);
+
+	for (; i < list_len; ++i)
+	{
+		item = PyList_GET_ITEM(p, i);
+		printf("Element %d: %s\n", i, item->ob_type->tp_name);
+
+		if (PyBytes_Check(item))
+			print_python_bytes(item);
+	}
+}
