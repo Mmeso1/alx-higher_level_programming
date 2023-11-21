@@ -43,18 +43,12 @@ class Square:
     def size(self, value):
         """size
         this one is to set the value of the private attribute `size`
-        Attributes:
-            value(int): the size of the square
-
-        Raises:
-        TypeError: if size is not an integer
-        ValueError: if size is less than 0
         """
 
-        if type(size) is not int:
+        if type(value) is not int:
             raise TypeError('size must be an integer')
 
-        if size < 0:
+        if value < 0:
             raise ValueError('size must be >= 0')
 
         self.__size = value
