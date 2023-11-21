@@ -32,14 +32,14 @@ class Square:
         """
         return self.__size * self.__size
 
-    @size.setter
+    @property
     def size(self):
         """size
         a getter function to retrieve the value of the private attribute `size`
         """
         return self.__size
 
-    @property
+    @size.setter
     def size(self, value):
         """size
         this one is to set the value of the private attribute `size`
