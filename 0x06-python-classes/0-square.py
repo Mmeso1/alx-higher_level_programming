@@ -3,12 +3,5 @@
 class Square:
     """
     This is the Square class.
-
-    Attributes:
-    None
-
-    Methods:
-    None
     """
-
     pass
