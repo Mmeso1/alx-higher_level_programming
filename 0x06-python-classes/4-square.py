@@ -32,14 +32,29 @@ class Square:
         """
         return self.__size * self.__size
 
+    @size.setter
     def size(self):
         """size
         a getter function to retrieve the value of the private attribute `size`
         """
         return self.__size
 
+    @property
     def size(self, value):
         """size
-        this one os to set the value of the private attribute `size`
+        this one is to set the value of the private attribute `size`
+        Attributes:
+            value(int): the size of the square
+
+        Raises:
+        TypeError: if size is not an integer
+        ValueError: if size is less than 0
         """
+
+        if type(size) is not int:
+            raise TypeError('size must be an integer')
+
+        if size < 0:
+            raise ValueError('size must be >= 0')
+
         self.__size = value
