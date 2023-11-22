@@ -121,12 +121,15 @@ class Square:
         Returns:
             str: The string representation of the Square instance.
         """
-        result = ""
+        square_str = ""
         if self.__size == 0:
-            result += "\n"
+            square_str += "\n"
         else:
             for _ in range(self.__position[1]):
-                result += "\n"
+                square_str += "\n"
             for _ in range(self.__size):
-                result += " " * self.__position[0] + "#" * self.__size + "\n"
-        return result
+                square_str += " " * self.__position[0]
+                square_str += "#" * self.__size
+                square_str += "\n"
+
+        return square_str.rstrip()
