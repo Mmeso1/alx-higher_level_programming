@@ -4,37 +4,35 @@ import math
 
 
 class MagicClass:
-    """A class representing a circle with magical properties.
+    """Represents a magic circle with radius"""
 
-    Attributes:
-        __radius (int or float): The radius of the magical circle.
-
-    Methods:
-        __init__(self, radius): Initializes the MagicClass
-        instance with a given radius.
-        area(self): Calculates and returns the area of the magical circle.
-        circumference(self): Calculates and returns the
-        circumference of the magical circle.
-    """
-    def __init__(self, radius):
-        """Initialize the MagicClass instance with a given radius.
+    def __init__(self, radius=0):
+        """
+        Initializes a MagicClass object with a given radius.
 
         Args:
-            radius (int or float): The radius of the magical circle.
-
+            radius (int or float): The radius of the magic circle.
         Raises:
-            TypeError: If the provided radius is not an int or float.
+            TypeError: If radius is not a number.
         """
         if type(radius) is not int and type(radius) is not float:
-            raise TypeError('radius must be a number')
-
+            raise TypeError("radius must be a number")
         self.__radius = radius
 
     def area(self):
-        """Calculate and return the area of the magical circle."""
+        """
+        Calculates the area of the magic circle.
+
+        Returns:
+            float: The area of the magic circle.
+        """
         return (self.__radius ** 2) * math.pi
 
     def circumference(self):
-        """Calculate and return the circumference of
-        the magical circle."""
+        """
+        Calculates the circumference of the magic circle.
+
+        Returns:
+            float: The circumference of the magic circle.
+        """
         return 2 * math.pi * self.__radius
