@@ -52,6 +52,7 @@ class Rectangle:
     def __str__(self):
         """ Returns the informal string representaion
         of the rectangle """
+
         if self.__width == 0 or self.__height == 0:
             return ""
         else:
@@ -59,3 +60,12 @@ class Rectangle:
             for _ in range(self.__height):
                 result += '#' * self.__width + '\n'
             return result.rstrip()
+
+    def __repr__(self):
+        """should return a string representation of the rectangle
+        to be able to recreate a new instance by using eval() """
+
+        return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        print("Bye rectangle...")
