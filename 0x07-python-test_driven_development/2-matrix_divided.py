@@ -2,6 +2,7 @@
 
 """ Divide a matrix """
 
+
 def matrix_divided(matrix, div):
     """
      divides all elements of a matrix.
@@ -14,8 +15,7 @@ def matrix_divided(matrix, div):
         raise TypeError(
                 "matrix must be a matrix (list of lists) of integers/floats")
 
-    
-    """ Checking the individual values of the matrix """
+        """ Checking the individual values of the matrix """
 
     matrix_len = len(matrix[0])
     new_matrix = []
@@ -28,7 +28,9 @@ def matrix_divided(matrix, div):
         for j in range(len(matrix[i])):
             if type(matrix[i][j]) not in [int, float]:
                 raise TypeError(
-                        'matrix must be a matrix (list of lists) of integers/floats')
+                   "matrix must be a matrix (list of lists) of integers/floats"
+                        )
+
             else:
                 row.append(round(float(matrix[i][j]) / div, 2))
         new_matrix.append(row)
