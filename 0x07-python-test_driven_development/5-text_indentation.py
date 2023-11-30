@@ -5,7 +5,7 @@
 
 def text_indentation(text):
     """
-    prints a text with 2 new lines after each of these characters: 
+    prints a text with 2 new lines after each of these characters:
     ., ? and :
     """
 
@@ -13,11 +13,12 @@ def text_indentation(text):
         raise TypeError('text must be a string')
 
     txt = ""
-    for char in text:
+    for i, char in enumerate(text):
         if char in ['.', '?', ':']:
-            txt += char + '$' + '\n' + '$' + '\n'
+            txt += char + '\n\n'
         else:
             if char == ' ':
                 continue
-            txt += char
+            else:
+                txt += char
     print(txt)
