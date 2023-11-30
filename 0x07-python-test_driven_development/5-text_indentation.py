@@ -15,10 +15,10 @@ def text_indentation(text):
     txt = ""
     for i, char in enumerate(text):
         if char in ['.', '?', ':']:
-            txt += char + '\n\n'
+            txt += char + '$' + '\n' + '$' + '\n' 
         else:
             if char == ' ':
                 continue
             else:
-                txt += char
+                txt += char 
     print(txt)
