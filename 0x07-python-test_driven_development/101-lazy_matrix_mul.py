@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import numpy as np
-
 """ Validate matrix """
 
 
@@ -31,8 +30,11 @@ def validate_matrix(matrix, name):
 def lazy_matrix_mul(m_a, m_b):
     """ using numPy to multily matrices """
 
-    validate_matrix(m_a, "m_b")
+    validate_matrix(m_a, "m_a")
     validate_matrix(m_b, "m_b")
+
+    if len(m_a[0]) != len(m_b):
+        raise ValueError("m_a and m_b can't be multiplied")
 
     np_m_a = np.array(m_a)
     np_m_b = np.array(m_b)
