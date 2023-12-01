@@ -39,4 +39,4 @@ def lazy_matrix_mul(m_a, m_b):
     np_m_a = np.array(m_a)
     np_m_b = np.array(m_b)
 
-    return (np_m_a @ np_m_b).tolist()
+    return (np_m_a @ np_m_b)
