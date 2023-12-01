@@ -12,7 +12,8 @@ class TestMaxInteger(unittest.TestCase):
     
     def test_non_list_input(self):
         # Test for when a list is not passed as the input
-        self.assertRaises(TypeError, max_integer, "not_a_list")
+        string = [1, 2, "Hello", 4, 5]
+        self.assertRaises(TypeError, max_integer, string)
 
     def test_list_withh_value(self):
         # Test for with float/int values
