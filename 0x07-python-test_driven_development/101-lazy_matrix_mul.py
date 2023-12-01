@@ -5,6 +5,7 @@ import numpy as np
 
 
 def validate_matrix(matrix, name):
+    """ Validates the matrix """
     if not isinstance(matrix, list):
         raise TypeError(f"{name} must be a list")
 
@@ -29,6 +30,7 @@ def validate_matrix(matrix, name):
 
 def lazy_matrix_mul(m_a, m_b):
     """ using numPy to multily matrices """
+
     validate_matrix(m_a, "m_b")
     validate_matrix(m_b, "m_b")
 
@@ -36,4 +38,3 @@ def lazy_matrix_mul(m_a, m_b):
     np_m_b = np.array(m_b)
 
     return (np_m_a @ np_m_b).tolist()
-
