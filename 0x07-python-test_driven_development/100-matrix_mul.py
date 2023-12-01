@@ -7,7 +7,7 @@ def validate_matrix(matrix, name):
     if not isinstance(matrix, list):
         raise TypeError(f"{name} must be a list")
 
-    if not all (isinstance(row, list) for row in matrix):
+    if not all(isinstance(row, list) for row in matrix):
         raise TypeError(f"{name} must be a list of lists")
 
     if matrix == [] or matrix == [[]]:
@@ -21,7 +21,6 @@ def validate_matrix(matrix, name):
 
     if len(set(len(row) for row in matrix)) > 1:
         raise TypeError(f"each row of {name} must be of the same size")
-
 
 
 """ Matrix multiplication """
