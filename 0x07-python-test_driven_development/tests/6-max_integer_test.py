@@ -17,9 +17,12 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_list_withh_value(self):
         # Test for with float/int values
-        self.assertEqual(max_integer([1,2,4,9,3,5]), 9)
-        self.assertEqual(max_integer([-1,-2,-4,-9,-3,-5]), -1)
-        self.assertEqual(max_integer([1,-2,4,-9,3,-5]), 4)
+        self.assertEqual(max_integer([1, 2, 4, 9, 3, 5]), 9)
+        self.assertEqual(max_integer([1, 2, 4, 3, 5, 9]), 9)
+        self.assertEqual(max_integer([5]), 5)
+        self.assertEqual(max_integer([1, 2, 4, 9, 3, 5, 9]), 9)
+        self.assertEqual(max_integer([-1, -2, -4, -9, -3, -5]), -1)
+        self.assertEqual(max_integer([1, -2, 4, -9, 3, -5]), 4)
         self.assertAlmostEqual(max_integer([1.5, 2.2, 4.8, 3.7]), 4.8)
         self.assertAlmostEqual(max_integer([-1.5, -2.2, -4.8, -3.7]), -1.5)
         self.assertAlmostEqual(max_integer([1.5, -2.2, 4.8, -3.7]), 4.8)
