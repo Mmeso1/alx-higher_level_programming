@@ -51,6 +51,10 @@ Normal Use
 	Go down to your left>>> text_indentation(" wq ")
 	wq >>>
 
+4. When an empty string is passed as th arg
+	>>> text_indentation(" ")
+
+
 
 Errors
 --------
@@ -61,3 +65,9 @@ Errors
 	  File "/alx-higher_level_programming/0x07-python-test_driven_development/5-text_indentation.py", line 13, in text_indentation
 	    raise TypeError('text must be a string')
 	TypeError: text must be a string
+
+1. When there is no argument
+	>>> text_indentation( )
+	Traceback (most recent call last):
+	  File "<stdin>", line 1, in <module>
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
