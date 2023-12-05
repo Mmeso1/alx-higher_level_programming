@@ -2,6 +2,7 @@
 
 """ Pascal's Triangle """
 
+
 def pascal_triangle(n):
     """ The pascal's triangle """
     if n <= 0:
