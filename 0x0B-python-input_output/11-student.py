@@ -23,5 +23,5 @@ class Student:
         """ replaces all attributes of the Student instance """
         for key, attr in json.items():
             if key in self.__dict__:
-                setattr(self, key, value)
+                setattr(self, key, attr)
         return self.__dict__
