@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 import sys
 
+""" Log parsing """
+
+
 file_size = 0
 
 status_code = {
