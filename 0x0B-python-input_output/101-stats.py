@@ -35,7 +35,7 @@ try:
         pieces = line.split()
 
         try:
-            status = pieces[-2]
+            status = int(pieces[-2])
 
             if str(status) in status_code.keys():
                 status_code[str(status)] += 1
