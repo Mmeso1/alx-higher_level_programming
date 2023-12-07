@@ -22,7 +22,7 @@ def print_metrics():
     print(f"File size: {file_size}")
     for scode, scode_count in sorted(status_code.items()):
         if scode_count > 0:
-            print(f"{scode} : {scode_count}")
+            print(f"{scode}: {scode_count}")
 
 
 lc = 0
