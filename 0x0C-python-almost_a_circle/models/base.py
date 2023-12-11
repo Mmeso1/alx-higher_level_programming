@@ -126,7 +126,7 @@ class Base:
         for square in list_squares:
             Base.draw_square(square)
 
-        turtle.draw()
+        turtle.done()
 
     def draw_rectangle(rectangle):
         t = turtle.Turtle()
