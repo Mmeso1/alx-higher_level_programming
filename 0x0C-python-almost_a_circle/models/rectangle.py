@@ -1,26 +1,16 @@
 #!/usr/bin/python3
 
 """ First Rectangle Module """
+
 from models.base import Base
-
-
-def validate_arg(attr_name, value):
-    if not isinstance(value, int):
-        raise TypeError(f"{attr_name} must be an integer")
-
-    if attr_name == "height" or attr_name == "width":
-        if value <= 0:
-            raise TypeError(f"{attr_name} must be > 0")
-
-    if attr_name == "x" or attr_name == "y":
-        if value < 0:
-            raise ValueError(f"{attr_name} must be >= 0")
 
 
 class Rectangle(Base):
     """ An inherited class from Base """
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
+
+        self.validate_arg("width", width)
         self.__width = width
         self.__height = height
         self.__x = x
@@ -34,7 +24,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """setter for width """
-        validate_arg("width", value)
+        self.validate_arg("width", value)
         self.__width = value
 
     @property
@@ -45,7 +35,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """ setter for height """
-        validate_arg("height", value)
+        self.validate_arg("height", value)
         self.__height = value
 
     @property
@@ -56,7 +46,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """Setter for x."""
-        validate_arg("x", value)
+        self.validate_arg("x", value)
         self.__x = value
 
     @property
@@ -67,7 +57,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """Setter for y."""
-        validate_arg("y", value)
+        self.validate_arg("y", value)
         self.__y = value
 
     def area(self):
@@ -75,6 +65,18 @@ class Rectangle(Base):
         ...
         """
         return self.__width * self.__height
+
+    def validate_arg(self, attr_name, value):
+        if type(value) is not int:
+            raise TypeError(f"{attr_name} must be an integer")
+
+        if attr_name == "height" or attr_name == "width":
+            if value <= 0:
+                raise TypeError(f"{attr_name} must be > 0")
+
+        if attr_name == "x" or attr_name == "y":
+            if value < 0:
+                raise ValueError(f"{attr_name} must be >= 0")
 
     def update(self, *args, **kwargs):
         """ assigns an argument to each attribute """
@@ -109,4 +111,4 @@ class Rectangle(Base):
                 'height': self.height,
                 'x': self.x,
                 'y': self.y
-               }
+                }

@@ -2,7 +2,7 @@
 
 """ The Square module """
 
-from models.rectangle import Rectangle, validate_arg
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
@@ -18,7 +18,7 @@ class Square(Rectangle):
     @size.setter
     def size(self, size):
         """ to set size """
-        validate_arg("width", size)
+        self.validate_arg("width", size)
         self.width = size
         self.height = size
 
