@@ -34,8 +34,8 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """setter for width """
-        if validate_arg("width", value):
-            self.__width = value
+        validate_arg("width", value)
+        self.__width = value
 
     @property
     def height(self):
@@ -45,8 +45,8 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """ setter for height """
-        if validate_arg("height", value):
-            self.__height = value
+        validate_arg("height", value)
+        self.__height = value
 
     @property
     def x(self):
@@ -56,8 +56,8 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """Setter for x."""
-        if validate_arg("x", value):
-            self.__x = value
+        validate_arg("x", value)
+        self.__x = value
 
     @property
     def y(self):
@@ -67,8 +67,8 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """Setter for y."""
-        if validate_arg("y", value):
-            self.__y = value
+        validate_arg("y", value)
+        self.__y = value
 
     def area(self):
         """
@@ -76,8 +76,37 @@ class Rectangle(Base):
         """
         return self.__width * self.__height
 
+    def update(self, *args, **kwargs):
+        """ assigns an argument to each attribute """
+        attrs = ["id", "width", "height", "x", "y"]
+        for i, arg in enumerate(args):
+            if i < len(attrs):
+                setattr(self, attrs[i], arg)
+
+        for key, value in kwargs.items():
+            if key in attrs:
+                setattr(self, key, value)
+
     def display(self):
-        for _ in range(self.__height):
-            for _ in range(self.__width):
-                print("#", end="") 
+        for _ in range(self.__y):
             print()
+
+        for _ in range(self.__height):
+            print(" " * self.__x, end="")
+            for _ in range(self.__width):
+                print("#", end="")
+            print()
+
+    def __str__(self):
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+                self.id, self.x, self.y, self.width, self.height
+                )
+
+    def to_dictionary(self):
+        return {
+                'id': self.id,
+                'width': self.width,
+                'height': self.height,
+                'x': self.x,
+                'y': self.y
+               }
