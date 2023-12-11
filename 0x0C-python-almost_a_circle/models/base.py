@@ -121,6 +121,9 @@ class Base:
 
     def draw(list_rectangles, list_squares):
         """ Turtle game functions, yayyy!!! """
+        """ Thought I was going to see an actual turtle,
+        turns out it is just an arrow drawing the squares.
+        Not so satisfying and saddening """
         screen = turtle.Screen()
         screen.bgcolor("white")
 
