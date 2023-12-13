@@ -72,7 +72,7 @@ class Rectangle(Base):
 
         if attr_name == "height" or attr_name == "width":
             if value <= 0:
-                raise TypeError(f"{attr_name} must be > 0")
+                raise ValueError(f"{attr_name} must be > 0")
 
         if attr_name == "x" or attr_name == "y":
             if value < 0:
