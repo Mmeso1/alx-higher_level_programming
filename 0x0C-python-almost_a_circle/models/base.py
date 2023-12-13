@@ -139,7 +139,7 @@ class Base:
         turtle.done()
 
     def draw_rectangle(rectangle):
-         """Draws a rectangle. """
+        """Draws a rectangle. """
         t = turtle.Turtle()
         t.penup()
         t.goto(rectangle.x, rectangle.y)
