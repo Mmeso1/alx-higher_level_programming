@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
 """ First Rectangle Module """
+
 
 from models.base import Base
 
