@@ -1,4 +1,4 @@
-from models.rectangle import Rectangle
+from models.square import Square
 
 def get_undocumented_functions(cls):
     """Get a list of functions in a class that are not documented."""
@@ -8,7 +8,7 @@ def get_undocumented_functions(cls):
             undocumented_functions.append(name)
     return undocumented_functions
 
-undocumented_functions = get_undocumented_functions(Rectangle)
+undocumented_functions = get_undocumented_functions(Square)
 
 if not undocumented_functions:
     print("All functions in Rectangle are documented.")
