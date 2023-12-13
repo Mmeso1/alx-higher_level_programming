@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" Base Class Module """ 
+""" 
+    Base Class Module
+""" 
+
 
 import json
 import csv
@@ -11,7 +14,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Initialize a new Base instance.
+        """ Initialize a new Base instance.
 
         Args:
             id (int): The identity of the instance.
