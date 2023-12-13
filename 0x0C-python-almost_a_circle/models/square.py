@@ -9,7 +9,6 @@ class Square(Rectangle):
     """ The Square Class """
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
-        self.size = size
 
     @property
     def size(self):
@@ -19,7 +18,6 @@ class Square(Rectangle):
     @size.setter
     def size(self, size):
         """ to set size """
-        self.validate_arg("width", size)
         self.width = size
         self.height = size
 
