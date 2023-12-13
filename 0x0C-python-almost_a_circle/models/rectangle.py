@@ -90,6 +90,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def display(self):
+        """ ..... """
         for _ in range(self.__y):
             print()
 
@@ -100,11 +101,13 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
+        """ .... """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
                 self.id, self.x, self.y, self.width, self.height
                 )
 
     def to_dictionary(self):
+        """ ... """
         return {
                 'id': self.id,
                 'width': self.width,

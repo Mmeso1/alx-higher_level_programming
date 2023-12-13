@@ -8,7 +8,7 @@ def is_function_documented(func):
 base_instance = Rectangle(2, 3)
 
 # Check if draw_rectangle is documented
-if is_function_documented(base_instance.draw_rectangle):
+if is_function_documented(base_instance.draw_square):
     print("draw_rectangle is documented.")
 else:
     print("draw_rectangle is not documented.")
