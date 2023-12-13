@@ -67,6 +67,8 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def validate_arg(self, attr_name, value):
+        """ does the proper validation for the args
+        in the called instances """
         if type(value) is not int:
             raise TypeError(f"{attr_name} must be an integer")
 

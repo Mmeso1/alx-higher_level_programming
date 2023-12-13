@@ -1,14 +1,16 @@
 from models.rectangle import Rectangle
 
-def is_function_documented(func):
-    """Check if a function has a docstring."""
-    return func.__doc__ is not None
+def get_undocumented_functions(cls):
+    """Get a list of functions in a class that are not documented."""
+    undocumented_functions = []
+    for name, value in vars(cls).items():
+        if callable(value) and not name.startswith("__") and value.__doc__ is None:
+            undocumented_functions.append(name)
+    return undocumented_functions
 
-# Create an instance of the Base class
-base_instance = Rectangle(2, 3)
+undocumented_functions = get_undocumented_functions(Rectangle)
 
-# Check if draw_rectangle is documented
-if is_function_documented(base_instance.draw_square):
-    print("draw_rectangle is documented.")
+if not undocumented_functions:
+    print("All functions in Rectangle are documented.")
 else:
-    print("draw_rectangle is not documented.")
+    print("Undocumented functions in Rectangle:", undocumented_functions)
