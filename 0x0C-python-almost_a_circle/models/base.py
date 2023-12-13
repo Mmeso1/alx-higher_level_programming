@@ -25,6 +25,7 @@ class Base:
         else:
             self.id = id
 
+    @static
     def to_json_string(list_dictionaries):
         """Converts a list of objects to a JSON string"""
         if not list_dictionaries:
