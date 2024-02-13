@@ -1,26 +1,11 @@
-#!/usr/bin/node
-
-const len = process.argv.length
-const nums = process.argv.slice(2).map(function (n) {
-  return parseInt(n)
-})
-const max = Math.max.apply(Math, nums)
-const min = Math.min.apply(Math, nums)
-
-if (len > 3) {
-  let i = 0
-  let n = 0
-  let secBig = min
-
-  for (; i < len; ++i) {
-    n = nums[i]
-
-    if (n > secBig && n < max) {
-      secBig = n
-    }
+function findSecondLargest(args) {
+  if (args.length <= 1) {
+    console.log(0)
+  } else {
+    const integers = args.map(Number).sort((a, b) => b - a)
+    console.log(integers[1])
   }
-
-  console.log(secBig)
-} else {
-  console.log(0)
 }
+
+const args = process.argv.slice(2)
+findSecondLargest(args)
