@@ -1,14 +1,5 @@
 #!/usr/bin/node
-const Rectangle = require('./4-rectangle')
+const esrever = require('./8-esrever').esrever
 
-const r1 = new Rectangle(2, 3)
-console.log('Normal:')
-r1.print()
-
-console.log('Double:')
-r1.double()
-r1.print()
-
-console.log('Rotate:')
-r1.rotate()
-r1.print()
+console.log(esrever([1, 2, 3, 4, 5]))
+console.log(esrever(['School', 89, { id: 12 }, 'String']))
