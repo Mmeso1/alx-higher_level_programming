@@ -2,11 +2,11 @@
 //  returns the number of occurrences in a list
 
 exports.nbOccurences = function (list, searchElement) {
-  let count = 0
+  let count = 0;
   list.forEach((element) => {
-    if (element == searchElement) {
-      count++
+    if (element === searchElement) {
+      count++;
     }
   })
-  return count
-}
+  return count;
+};
