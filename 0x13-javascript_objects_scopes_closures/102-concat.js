@@ -1,9 +1,8 @@
-args = process.argv.slice(2);
+#!/usr/bin/node
 
+const fs = require('fs');
 let content = '';
-content.concat(fs.readFileSync(process.argv[2]));
 
-content = content.concat(fs.readFileSync(args[0]));
-content = content.concat(fs.readFileSync(args[1]));
-fileC = args[2];
-fs.writeFileSync(fileC, content);
+content = content.concat(fs.readFileSync(process.argv[2]));
+content = content.concat(fs.readFileSync(process.argv[3]));
+fs.writeFileSync(process.argv[4], content);
