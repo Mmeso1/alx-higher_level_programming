@@ -1,8 +1,9 @@
-args = process.argv.slice(2)
+args = process.argv.slice(2);
 
-const fileAContent = fs.readFileSync(args[0], 'utf8')
-const fileBContent = fs.readFileSync(args[1], 'utf8')
+let content = '';
+content.concat(fs.readFileSync(process.argv[2]));
 
-const concat = fileAContent + fileBContent
-fileC = args[2]
-fs.writeFileSync(fileC, concat)
+content = content.concat(fs.readFileSync(args[0]));
+content = content.concat(fs.readFileSync(args[1]));
+fileC = args[2];
+fs.writeFileSync(fileC, content);
