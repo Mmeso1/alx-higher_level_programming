@@ -1,23 +1,24 @@
 #!/usr/bin/node
 
-// Checks for Rectangle parameters
+// Prints a Rectangle with the parameters passed
 
 module.exports = class Rectangle {
-  constructor(w, h) {
-    if (typeof w === 'number' && typeof h === 'number' && w > 0 && h > 0) {
-      this.width = w;
-      this.height = h;
+  constructor (width, height) {
+    if (typeof width === 'number' && typeof height === 'number' && width > 0 && height > 0) {
+      this.width = width;
+      this.height = height;
     }
   }
 
-  print() {
-    for (let i = 0; i < this.height; i++) {
+  print () {
+    for (let i = 0; i < this.height; ++i) {
       let j = 0;
-      for (; j < this.width; j++) {
+
+      for (; j < this.width; ++j) {
         process.stdout.write('X');
       }
 
-      if (j == this.width) {
+      if (j === this.width) {
         console.log('');
       }
     }
