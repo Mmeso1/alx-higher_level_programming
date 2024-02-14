@@ -7,7 +7,7 @@ const newDict = {};
 for (const key in _dict) {
   const occurrence = _dict[key];
 
-  if (newDict.hasOwnProperty.call(occurrence)) {
+  if (Object.prototype.hasOwnProperty.call(occurrence)) {
     newDict[occurrence].push(key);
   } else {
     newDict[occurrence] = [key];
