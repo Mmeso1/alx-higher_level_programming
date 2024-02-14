@@ -12,6 +12,6 @@ for (const key in _dict) {
   } else {
     newDict[occurrence] = [key];
   }
-}
+};
 
 console.log(newDict);
