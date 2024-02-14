@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 function findSecondLargest (args) {
   if (args.length <= 1) {
     console.log(0);
