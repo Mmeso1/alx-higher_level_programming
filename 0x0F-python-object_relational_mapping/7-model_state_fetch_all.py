@@ -14,8 +14,7 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
 
     Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)()
-    session = Session()
+    db = sessionmaker(bind=engine)()
 
     for state in db.query(State).order_by(State.id):
         print("{:d}: {:s}".format(state.id, state.name))
