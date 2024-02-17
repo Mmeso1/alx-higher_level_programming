@@ -18,7 +18,8 @@ if __name__ == "__main__":
     db = sessionmaker(bind=engine)()
 
     cal_state = State(name="Carlifornia")
-    san_city = City(name="San Francisco", state=cal_state)
+    san_city = City(name="San Francisco")
+    cal_state.cities.append(san_city)
 
     db.add(san_city)
     db.commit()
