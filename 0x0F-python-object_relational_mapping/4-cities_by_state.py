@@ -12,7 +12,7 @@ if __name__ == "__main__":
             db=argv[3], charset='utf8')
     cur = db.cursor()
     cur.execute("""SELECT c.id, c.name, states.id FROM cities c\
-            INNER JOIN states on .id = states.id""")
+            INNER JOIN states on cities.id = states.id""")
     states = cur.fetchall()
     for state in states:
         print(state)
