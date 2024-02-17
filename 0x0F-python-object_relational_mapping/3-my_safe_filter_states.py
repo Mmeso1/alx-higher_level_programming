@@ -14,7 +14,7 @@ if __name__ == "__main__":
                              db=argv[3], charset='utf8')
         cur = db.cursor()
         cur.execute("""SELECT * FROM states WHERE name = %s ORDER BY id"""
-                    (argv[4]))
+                    (argv[4],))
         states = cur.fetchall()
         for state in states:
             if state[1] == argv[4]:
