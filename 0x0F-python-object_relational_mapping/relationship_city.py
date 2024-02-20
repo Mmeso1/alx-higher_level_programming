@@ -8,6 +8,7 @@ to work with MySQLAlchemy ORM.
 from sqlalchemy import Column, Integer, String, ForeignKey
 from relationship_state import Base, State
 
+
 class City(Base):
     """City class
 
