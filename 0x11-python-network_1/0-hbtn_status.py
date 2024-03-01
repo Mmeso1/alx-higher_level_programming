@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-#what is my status?
+""" what is my status? """
+
 from urllib.request import Request, urlopen
 
 if __name__ == "__main__":
