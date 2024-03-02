@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Error code """
+""" a Python script that fetches https://alx-intranet.hbtn.io/status """
+
 from sys import argv
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode
