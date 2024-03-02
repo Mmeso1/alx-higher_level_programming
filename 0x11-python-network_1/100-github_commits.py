@@ -11,6 +11,6 @@ if __name__ == '__main__':
     res = requests.get(f'https://api.github.com/repos/{owner}/{repo}/commits')
     data = res.json()
 
-    for data in data[:10]:
-        res = f"{data['sha']}: {data['commit']['author']['name']}"
+    for commit in data[:10]:
+        res = f"{commit['sha']}: {commit['commit']['author']['name']}"
         print(res)
