@@ -7,7 +7,8 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    url = f"https://api.github.com/repos/{argv[2]}/{argv[1]}/commits"
+    repo, owner = argv[1], argv[2]
+    url = f"https://api.github.com/repos/{owner}/{argv[repo]}/commits"
     res = requests.get(url)
     data = res.json()
     for data in data[:10]:
